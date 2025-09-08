@@ -1,8 +1,7 @@
-// import CarouselSlide from "../components/Home/Carousel/CarouselSlide";
 import CampaignList from "../components/Home/CampaignSection/CampaignList";
 import HeroCarousel from "../components/Home/Carousel/HeroCarousel";
+import Steps from "../components/Home/ProcessFlow/Steps";
 import SectionHeader from "../components/Home/SectionHeader";
-
 
 const Home = () => {
     return (
@@ -10,6 +9,7 @@ const Home = () => {
             <SectionHeader />
             <HeroCarousel />
             <CampaignList />
+            <Steps />
         </div>
     );
 };
