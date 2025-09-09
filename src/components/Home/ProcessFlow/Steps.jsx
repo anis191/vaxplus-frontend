@@ -35,7 +35,8 @@ const Steps = () => {
   ];
     return (
       <div className="max-w-5xl mx-auto p-4">
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 text-center px-4 sm:px-6 md:px-0">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 mb-10 text-center px-4 sm:px-6 md:px-0">
+
             How to Book Your Vaccine?
         </h2>
         <Stepper steps={steps} currentStep={currentStep} setCurrentStep={setCurrentStep}/>

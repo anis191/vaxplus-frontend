@@ -5,6 +5,7 @@ import SectionHeader from "../components/Home/SectionHeader";
 import Slider from "../components/Home/DoctorSection/Slider"
 import Statistics from "../components/Home/Statistics";
 import Donation from "../components/Home/Donation"
+import Faq from "../components/Home/Faq"
 
 const Home = () => {
     return (
@@ -20,6 +21,8 @@ const Home = () => {
             <Slider />
             <hr className="my-8 border-t-2 border-gray-200" />
             <Donation />
+            <hr className="my-8 border-t-2 border-gray-200" />
+            <Faq />
         </div>
     );
 };

@@ -10,13 +10,13 @@ const Statistics = () => {
     },
     {
       id: 2,
-      value: "12K+",
+      value: "2K+",
       label: "Registered Users",
       icon: <FaUsers className="w-6 h-6 text-blue-600 ml-2 inline" />,
     },
     {
       id: 3,
-      value: "85K+",
+      value: "9K+",
       label: "Vaccines Distributed",
       icon: <FaSyringe className="w-6 h-6 text-green-600 ml-2 inline" />,
     },
