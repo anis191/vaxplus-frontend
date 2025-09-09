@@ -10,19 +10,19 @@ const Statistics = () => {
     },
     {
       id: 2,
-      value: "120K+",
+      value: "12K+",
       label: "Registered Users",
       icon: <FaUsers className="w-6 h-6 text-blue-600 ml-2 inline" />,
     },
     {
       id: 3,
-      value: "850K+",
+      value: "85K+",
       label: "Vaccines Distributed",
       icon: <FaSyringe className="w-6 h-6 text-green-600 ml-2 inline" />,
     },
     {
       id: 4,
-      value: "480+",
+      value: "48+",
       label: "Doctors Available",
       icon: <FaHospitalUser className="w-6 h-6 text-pink-600 ml-2 inline" />,
     },
