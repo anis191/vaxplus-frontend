@@ -1,7 +1,6 @@
-import doctor1 from "../../../assets/images/doctor1.jpg";
-import doctor2 from "../../../assets/images/doctor2.jpg";
-import doctor3 from "../../../assets/images/doctor3.jpg";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import CampaignSkeleton from "../../Skeletons/CampaignSkeleton"
+import Error from "../../Common/Error"
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,58 +9,13 @@ import 'swiper/css/navigation';
 
 import {Autoplay, Pagination } from "swiper/modules";
 import Doctor from "../../Doctors/Doctor";
+import useFetchDoctors from "../../../hooks/useFetchDoctors";
 
 export default function App() {
-    const doctors = [
-        {
-            id: 1,
-            bio: {
-                id: 1,
-                first_name: "Dr.Arif",
-                last_name: "Hossain",
-                phone_number: "0185678004"
-            },
-            specialization: "Neurologist(NLP)",
-            contact: "tamp@gmail.com",
-            profile_picture: doctor1
-        },
-        {
-            id: 2,
-            bio: {
-                id: 2,
-                first_name: "Dr.Nur",
-                last_name: "Islam",
-                phone_number: "0175678004"
-            },
-            specialization: "Neurologist(NL)",
-            contact: "tamp@gmail.com",
-            profile_picture: doctor2
-        },
-        {
-            id: 3,
-            bio: {
-                id: 3,
-                first_name: "Dr. Salman",
-                last_name: "Khan",
-                phone_number: "0165678004"
-            },
-            specialization: "Neurologist(LP)",
-            contact: "tamp@gmail.com",
-            profile_picture: doctor3
-        },
-        {
-            id: 4,
-            bio: {
-                id: 4,
-                first_name: "Dr.temp",
-                last_name: "user",
-                phone_number: "0165678004"
-            },
-            specialization: "Neurologist(NP)",
-            contact: "tamp@gmail.com",
-            profile_picture: doctor1
-        },
-    ]
+    const {doctors, loading, error} = useFetchDoctors()
+
+    if(error)
+      return(<Error message={error} />)
 
   return (
     <>
@@ -73,6 +27,9 @@ export default function App() {
         Our team of experienced specialists is here to provide the best care for you.
         </p>
     </div>
+
+      {loading &&(<div className="flex justify-center"><CampaignSkeleton /></div>)}
+      {/* {error &&(<div className="flex justify-center"><Error message={error} /></div>)} */}
 
       <Swiper
         slidesPerView={3}

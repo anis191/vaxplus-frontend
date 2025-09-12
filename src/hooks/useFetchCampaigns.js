@@ -16,7 +16,7 @@ const useFetchCampaigns = (currentPage) => {
                 const response = await apiClient.get(url)
                 const data = response.data
                 setCampaigns(data.results)
-                setTotalPages(Math.ceil(data.count / 10))
+                setTotalPages(Math.ceil(data.count / 6))
             }catch(err){setError(err.message)}
             finally{setLoading(false)}
         }
