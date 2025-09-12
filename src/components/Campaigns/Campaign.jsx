@@ -6,7 +6,6 @@ import { Link } from "react-router";
 const Campaign = ({campaign, heading}) => {
    if (!campaign) return null;
 
-
   const date = campaignDate(campaign.status, campaign.start_date, campaign.end_date)
 
   const statusClasse = campaign.status === "Ongoing" ? "bg-green-600 text-white" : campaign.status === "Upcoming" ? "bg-blue-600 text-white" : "bg-gray-600 text-white";

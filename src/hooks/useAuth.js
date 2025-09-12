@@ -66,8 +66,17 @@ const useAuth = () => {
         }
     }
 
+    // Reset Password:
+    const resetPassword = async(email) =>{
+        SetErrorMsg("")
+        try{
+            await apiClient.post("/auth/users/reset_password/", email)
+            return { success: true };
+        }catch(error){handleAPIerrors(error, "Please Try Again");}
+    }
+
     return {
-        registerUser, errorMsg, loginUser, user
+        registerUser, errorMsg, loginUser, user, resetPassword
     };
 };
 
