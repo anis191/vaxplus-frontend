@@ -15,6 +15,7 @@ import RegistrationsDoses from "../components/Dashboard/RegistrationsDoses";
 import VaccinationHistory from "../components/Dashboard/VaccinationHistory";
 import CampaignForm from "../components/Campaigns/CampaignForm";
 import EditCampaign from "../pages/EditCampaign";
+import Profile from "../pages/Profile";
 
 const AppRoutes = () => {
     return (
@@ -44,6 +45,7 @@ const AppRoutes = () => {
                 <Route path="campaign/:id/update" element={<EditCampaign />}/>
                 {/* <Route path="payment/success" element={<PaymentSuccess />}/> */}
                 {/* <Route path="products/add" element={<AddProduct />}/> */}
+                <Route path="profile" element={<Profile />}/>
             </Route>
         </Routes>
     );

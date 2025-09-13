@@ -39,6 +39,34 @@ const useAuth = () => {
         }finally{setDashLoading(false)}
     }
 
+     // Update User Profile:
+    const updateUserProfile = async (data) =>{
+        SetErrorMsg("")
+        try{
+            await apiClient.put("/auth/users/me/", data, {
+                headers: {Authorization: `JWT ${authTokens?.access}`}
+            })
+            return { success: true };
+        }catch(error){
+            handleAPIerrors(error, "Failed to update profile.");
+            return { success: false };
+        }
+    } 
+
+    // Change Password:
+    const changePassword = async(data) =>{
+        SetErrorMsg("")
+        try{
+            await apiClient.post("/auth/users/set_password/", data, {
+                headers: {Authorization: `JWT ${authTokens?.access}`}
+            })
+            return { success: true };
+        }catch(error){
+            handleAPIerrors(error, "Failed to change password.");
+            return { success: false };
+        }
+    }
+
     // Register Users:
     const registerUser = async (userData) =>{
         SetErrorMsg("")
@@ -83,7 +111,7 @@ const useAuth = () => {
     }
 
     return {
-        registerUser, errorMsg, loginUser, user, resetPassword, logoutUser, dashLoading
+        registerUser, errorMsg, loginUser, user, resetPassword, logoutUser, dashLoading, updateUserProfile, changePassword
     };
 };
 
