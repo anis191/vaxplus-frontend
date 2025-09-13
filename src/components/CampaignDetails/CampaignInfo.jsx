@@ -1,6 +1,21 @@
+import { Link, useNavigate} from "react-router";
+import useAuthContext from "../../hooks/useAuthContext";
 import {formatDate} from "../../utils/dateUtils"
+import authApiClient from "../../services/auth-api-client";
 
 const CampaignInfo = ({ campaign }) => {
+  const {user} = useAuthContext()
+  const navigate = useNavigate();
+
+  const handleDelete = async() =>{
+    console.log("Deleting campaign:", campaign);
+    try{
+      const res = await authApiClient.delete(`/campaigns/${campaign.id}/`)
+      if(res.status == 204){
+      alert("Delete campaign successful!")
+       navigate("/campaigns")}
+    }catch(err){console.log(err)}
+  }
 
   return (
     <div className="">
@@ -38,6 +53,17 @@ const CampaignInfo = ({ campaign }) => {
           <span className={`mt-1 font-medium ${campaign.is_premium ? "bg-yellow-100 text-yellow-700" : "bg-blue-100 text-blue-700" } px-4 py-1 rounded-lg`}>{campaign.is_premium ? "Premium" : "Free"}</span>
         </div>
       </div>
+      {user.is_staff || user.role == 'Doctor' && (
+        <div className="mt-6 flex gap-4">
+        <Link to={`/dashboard/campaign/${campaign.id}/update`}><button
+          className="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+          Edit
+        </button></Link>
+        <button onClick={handleDelete}
+          className="px-5 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition">
+          Delete
+        </button>
+        </div>)}
     </div>
   );
 };

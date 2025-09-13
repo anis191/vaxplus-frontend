@@ -1,24 +1,20 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuthContext from "../hooks/useAuthContext";
+import { useNavigate } from "react-router";
 
 const Login = () => {
-   const[loading, setLoading] = useState(false)
-  const [successMsg, setSuccessMsg] = useState("");
+  const[loading, setLoading] = useState(false)
   const { loginUser, errorMsg } = useAuthContext();
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate()
 
   const onSubmit = async (data) => {
     setLoading(true)
     try {
       const response = await loginUser(data);
       if (response.success){
-        setSuccessMsg(
-          <p className="font-bold">
-             Login successful{" "}
-             <span className="status status-info animate-bounce ml-2"></span>
-           </p>
-        );
+          navigate("/dashboard")
       }
     } catch (error){console.log(error)}
     finally{setLoading(false)}
@@ -29,11 +25,6 @@ const Login = () => {
       <div className="w-full max-w-md sm:max-w-lg bg-base-100 shadow-xl rounded-lg sm:rounded-xl p-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Login</h2>
 
-        {successMsg && (
-          <div className="alert alert-success alert-soft mb-2">
-            <span>{successMsg}</span>
-          </div>
-        )}
         {errorMsg && (
            <div className="alert alert-error alert-soft mb-2">
             <span>{errorMsg}</span>

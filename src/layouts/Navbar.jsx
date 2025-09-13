@@ -1,8 +1,11 @@
 import { useState } from "react";
+import useAuthContext from "../hooks/useAuthContext";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [departmentsOpen, setDepartmentsOpen] = useState(false);
+  const {user, logoutUser} = useAuthContext()
 
   return (
     <header className="w-full shadow-md">
@@ -50,56 +53,77 @@ const Navbar = () => {
       <nav className="bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <a className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <img
                 src="https://img.icons8.com/color/48/000000/hospital-3.png"
                 alt="logo"
                 className="w-7 h-7 sm:w-8 sm:h-8"
               />
               <span className="text-lg sm:text-xl font-bold text-blue-900">VaxPlus</span>
-            </a>
+            </Link>
 
             <div className="hidden lg:flex space-x-6 items-center">
-              <a href="#" className="text-gray-700 hover:text-blue-700">Home</a>
-              <div
+              <Link to="/" className="text-gray-700 hover:text-blue-700">Home</Link>
+                <Link to="campaigns"><div
                 className="relative"
                 onMouseEnter={() => setDepartmentsOpen(true)}
                 onMouseLeave={() => setDepartmentsOpen(false)}>
                 <button className="flex items-center gap-1 text-gray-700 hover:text-blue-700">
-                  Departments
+                  Campaigns
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
                 {departmentsOpen && (
                   <div className="absolute bg-white shadow-md rounded-md mt-2 w-40 z-50">
-                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">Cardiology</a>
-                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">Neurology</a>
-                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">Orthopedics</a>
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">Upcoming</a>
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">Ongoing</a>
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">Ended</a>
                   </div>
                 )}
-              </div>
-              <a href="#" className="text-gray-700 hover:text-blue-700">Doctors</a>
-              <a href="#" className="text-gray-700 hover:text-blue-700">Appointments</a>
+              </div></Link>
+              <Link to="doctors" className="text-gray-700 hover:text-blue-700">Doctors</Link>
+              <Link to="dashboard" className="text-gray-700 hover:text-blue-700">Dashboard</Link>
               <a href="#" className="text-gray-700 hover:text-blue-700">About</a>
               <a href="#" className="text-gray-700 hover:text-blue-700">Contact</a>
             </div>
             <div className="flex items-center gap-2 sm:gap-4">
-              <a className="hidden sm:inline-block px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition">
-                Register / Log In
-              </a>
-              <div className="avatar avatar-placeholder">
-                <div className="bg-neutral text-neutral-content w-8 sm:w-9 rounded-full">
-                  <span className="text-xs sm:text-sm">SY</span>
+              {user ? (
+                <div className="relative">
+                  <div className="dropdown dropdown-end">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                      <div className="bg-neutral text-neutral-content w-8 sm:w-9 rounded-full flex items-center justify-center">
+                        <span className="text-xs sm:text-sm">
+                          {((user.first_name?.[0] || "") + (user.last_name?.[0] || "")).toUpperCase()}
+                        </span>
+                      </div>
+                    </div>
+                    <ul
+                      tabIndex={0}
+                      className="menu menu-sm dropdown-content bg-white rounded-md shadow-md mt-3 w-40 p-2 z-50">
+                      <li>
+                        <Link to="/dashboard/profile" className="justify-between">
+                          Profile
+                        </Link>
+                      </li>
+                      <li><a>Settings</a></li>
+                      <li><a onClick={logoutUser}>Logout</a></li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
+                ) : (
+                  <Link to="/login">
+                    <button className="hidden sm:inline-block px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition">
+                      Register / Log In
+                    </button>
+                  </Link>
+                )}
 
               {/* Mobile Menu Button */}
               <div className="lg:hidden">
                 <button
                   className="p-2 rounded-md hover:bg-gray-100"
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                   <svg className="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                   </svg>
@@ -113,34 +137,34 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white shadow-md z-50">
             <ul className="px-4 py-2 space-y-2">
-              <li><a href="#" className="block text-gray-700 hover:text-blue-700">Home</a></li>
-              <li>
+              <li><Link to="/" className="block text-gray-700 hover:text-blue-700">Home</Link></li>
+              <Link to="campaigns"><li>
                 <button
                   className="w-full text-left text-gray-700 hover:text-blue-700 flex justify-between items-center"
-                  onClick={() => setDepartmentsOpen(!departmentsOpen)}
-                >
-                  Departments
+                  onClick={() => setDepartmentsOpen(!departmentsOpen)}>
+                  Campaigns
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
                 {departmentsOpen && (
                   <ul className="pl-4 mt-1 space-y-1">
-                    <li><a href="#" className="block text-gray-700 hover:text-blue-700">Cardiology</a></li>
-                    <li><a href="#" className="block text-gray-700 hover:text-blue-700">Neurology</a></li>
-                    <li><a href="#" className="block text-gray-700 hover:text-blue-700">Orthopedics</a></li>
+                    <li><a href="#" className="block text-gray-700 hover:text-blue-700">Upcoming</a></li>
+                    <li><a href="#" className="block text-gray-700 hover:text-blue-700">Ongoing</a></li>
+                    <li><a href="#" className="block text-gray-700 hover:text-blue-700">Ended</a></li>
                   </ul>
                 )}
-              </li>
-              <li><a href="#" className="block text-gray-700 hover:text-blue-700">Doctors</a></li>
-              <li><a href="#" className="block text-gray-700 hover:text-blue-700">Appointments</a></li>
+              </li></Link>
+              <li><Link to="doctors" className="block text-gray-700 hover:text-blue-700">Doctors</Link></li>
+              <li><Link to="dashboard" className="block text-gray-700 hover:text-blue-700">Dashboard</Link></li>
               <li><a href="#" className="block text-gray-700 hover:text-blue-700">About</a></li>
               <li><a href="#" className="block text-gray-700 hover:text-blue-700">Contact</a></li>
+              {!user && (
               <li>
-                <a className="block w-full text-center px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition">
+                <Link to="/login"><button className="block w-full text-center px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition">
                   Register / Log In
-                </a>
-              </li>
+                </button></Link>
+              </li>)}
             </ul>
           </div>
         )}

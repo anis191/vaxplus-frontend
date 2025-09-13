@@ -8,6 +8,13 @@ import Register from "../pages/Register";
 import ResetPassword from "../pages/ResetPassword";
 import ActivateAccount from "../components/Registration/ActivateAccount";
 import ResetPasswordConfirm from "../components/Registration/ResetPasswordConfirm";
+import DashboardLayout from "../layouts/DashboardLayout";
+import Dashboard from "../pages/Dashboard"
+import PrivateRoute from "../components/PrivateRoute";
+import RegistrationsDoses from "../components/Dashboard/RegistrationsDoses";
+import VaccinationHistory from "../components/Dashboard/VaccinationHistory";
+import CampaignForm from "../components/Campaigns/CampaignForm";
+import EditCampaign from "../pages/EditCampaign";
 
 const AppRoutes = () => {
     return (
@@ -22,6 +29,21 @@ const AppRoutes = () => {
                 <Route path="activate/:uid/:token" element={<ActivateAccount />}/>
                 <Route path="password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />}/>
                 {/* <Route path="test/:id" element={<Test />}/> */}
+            </Route>
+
+            {/* Private Routes */}
+            <Route path="dashboard" element={
+                <PrivateRoute>
+                    <DashboardLayout />
+                </PrivateRoute>}>
+                <Route index element={<Dashboard />}/>
+                <Route path="booked_dose" element={<RegistrationsDoses />}/>
+                {/* <Route path="profile" element={<Profile />}/> */}
+                <Route path="vaccination_history" element={<VaccinationHistory />}/>
+                <Route path="add/campaign" element={<CampaignForm />}/>
+                <Route path="campaign/:id/update" element={<EditCampaign />}/>
+                {/* <Route path="payment/success" element={<PaymentSuccess />}/> */}
+                {/* <Route path="products/add" element={<AddProduct />}/> */}
             </Route>
         </Routes>
     );

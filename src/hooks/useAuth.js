@@ -4,6 +4,7 @@ import apiClient from "../services/api-client";
 const useAuth = () => {
     const[user, setUser] = useState(null)
     const[errorMsg, SetErrorMsg] = useState("")
+    const[dashLoading, setDashLoading] = useState(true)
 
     const getToken = () =>{
         const token = localStorage.getItem('authTokens')
@@ -13,6 +14,7 @@ const useAuth = () => {
     
     useEffect(() =>{
         if(authTokens) fetchUserProfile()
+        else setDashLoading(false)
     },[authTokens])
 
     const handleAPIerrors = (error, defaultMessage="Something went wrong! Try again.") => {
@@ -31,11 +33,10 @@ const useAuth = () => {
                 headers: {Authorization: `JWT ${accessToken}`}
             })
             setUser(response.data)
-            console.log(response.data)
         }catch(error){
             console.log(error)
             setUser(null);
-        }
+        }finally{setDashLoading(false)}
     }
 
     // Register Users:
@@ -75,8 +76,14 @@ const useAuth = () => {
         }catch(error){handleAPIerrors(error, "Please Try Again");}
     }
 
+    const logoutUser = async () =>{
+        SetAuthTokens(null)
+        setUser(null)
+        localStorage.removeItem("authTokens")
+    }
+
     return {
-        registerUser, errorMsg, loginUser, user, resetPassword
+        registerUser, errorMsg, loginUser, user, resetPassword, logoutUser, dashLoading
     };
 };
 
