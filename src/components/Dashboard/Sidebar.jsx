@@ -29,7 +29,7 @@ export default function Sidebar() {
         { to: "/dashboard/add/campaign", icon: FiPlusCircle, label: "Add Campaign" },
         { to: "/category/add", icon: FiPlusCircle, label: "Add Category" },
         { to: "/vaccine/add", icon: FiPlusCircle, label: "Add Vaccine" },
-        { to: "/participants", icon: FiUsers, label: "Manage Your Patients" },
+        { to: "/dashboard/booked_dose", icon: FiUsers, label: "Manage Your Patients" },
         { to: "/reports", icon: FiFileText, label: "Reports" },
       ]
     : [

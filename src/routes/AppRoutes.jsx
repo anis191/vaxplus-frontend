@@ -18,6 +18,7 @@ import EditCampaign from "../pages/EditCampaign";
 import Profile from "../pages/Profile";
 import Doctors from "../pages/Doctors";
 import DoctorDetail from "../pages/DoctorDetail";
+import BookingDetails from "../components/Booking/BookingDetails";
 
 const AppRoutes = () => {
     return (
@@ -43,12 +44,11 @@ const AppRoutes = () => {
                 </PrivateRoute>}>
                 <Route index element={<Dashboard />}/>
                 <Route path="booked_dose" element={<RegistrationsDoses />}/>
-                {/* <Route path="profile" element={<Profile />}/> */}
                 <Route path="vaccination_history" element={<VaccinationHistory />}/>
                 <Route path="add/campaign" element={<CampaignForm />}/>
                 <Route path="campaign/:id/update" element={<EditCampaign />}/>
+                <Route path="booking_detail/:uuid" element={<BookingDetails />}/>
                 {/* <Route path="payment/success" element={<PaymentSuccess />}/> */}
-                {/* <Route path="products/add" element={<AddProduct />}/> */}
                 <Route path="profile" element={<Profile />}/>
             </Route>
         </Routes>

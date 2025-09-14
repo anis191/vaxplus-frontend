@@ -1,4 +1,5 @@
 import { HiAdjustments } from "react-icons/hi";
+import useFetchCategories from "../../hooks/useFetchCategories";
 
 const FilterSection = ({
   selectedCategory,
@@ -16,6 +17,8 @@ const FilterSection = ({
   searchQuery,
   setSearchQuery
 }) => {
+
+  const {categories} = useFetchCategories()
 
   return (
     <>
@@ -53,12 +56,10 @@ const FilterSection = ({
                 id="category"
                 className="mt-1 px-2 py-0.5 text-xs border rounded focus:ring focus:ring-blue-200"
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-              >
-                <option value="">Select Category</option>
-                <option value="covid">COVID</option>
-                <option value="flu">Flu</option>
-                <option value="hepatitis">Hepatitis</option>
+                onChange={(e) => setSelectedCategory(e.target.value)}>
+                  {categories.map((categorie) => (
+                    <option key={categorie.id} value={categorie.id}>{categorie.name}</option>
+                  ))}
               </select>
             </div>
 
