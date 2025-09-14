@@ -19,6 +19,8 @@ import Profile from "../pages/Profile";
 import Doctors from "../pages/Doctors";
 import DoctorDetail from "../pages/DoctorDetail";
 import BookingDetails from "../components/Booking/BookingDetails";
+import ApplicationForm from "../components/DoctorsApplication/ApplicationForm";
+import DoctorApplications from "../pages/DoctorApplications";
 
 const AppRoutes = () => {
     return (
@@ -49,6 +51,8 @@ const AppRoutes = () => {
                 <Route path="campaign/:id/update" element={<EditCampaign />}/>
                 <Route path="booking_detail/:uuid" element={<BookingDetails />}/>
                 {/* <Route path="payment/success" element={<PaymentSuccess />}/> */}
+                <Route path="doctors_apply" element={<ApplicationForm />}/>
+                <Route path="doctor_applications" element={<DoctorApplications />}/>
                 <Route path="profile" element={<Profile />}/>
             </Route>
         </Routes>

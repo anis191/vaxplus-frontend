@@ -4,6 +4,7 @@ import { FiMail, FiPhone, FiArrowLeft, FiMapPin, FiClock, FiUser } from "react-i
 import apiClient from "../services/api-client";
 import CampaignSkeleton from "../components/Skeletons/CampaignSkeleton";
 import useAuthContext from "../hooks/useAuthContext";
+import UpdateDoctorProfile from "../pages/UpdateDoctorProfile"
 
 const DoctorDetail = () => {
   const { doctorId } = useParams();
@@ -11,6 +12,7 @@ const DoctorDetail = () => {
   const [loading, setLoading] = useState(true)
   const {user} = useAuthContext()
   const [isEdit, setIsEdit] = useState(false)
+  const [isUpdate, setIsUpdate] = useState(false)
 
   useEffect(() => {
     const fetchDoctor = async () => {
@@ -28,7 +30,7 @@ const DoctorDetail = () => {
     fetchDoctor()
   }, [doctorId])
 
-  if (loading) {
+  if(loading){
     return (
       <div className="w-full flex justify-center my-5">
         <CampaignSkeleton />
@@ -50,6 +52,7 @@ const DoctorDetail = () => {
         <FiArrowLeft /> Back to Doctors
       </Link>
 
+        {isUpdate ? (<UpdateDoctorProfile doctor={doctor} setIsUpdate={setIsUpdate}/>) : (
       <div className="bg-white shadow-lg flex flex-col md:flex-row overflow-hidden">
         <div className="md:w-1/3">
           <img
@@ -58,7 +61,6 @@ const DoctorDetail = () => {
             className="w-full h-full object-cover"
           />
         </div>
-
         <div className="md:w-2/3 p-6 flex flex-col justify-between">
           <div>
             <div className="flex justify-between">
@@ -66,7 +68,7 @@ const DoctorDetail = () => {
               {doctor.bio.first_name} {doctor.bio.last_name}
             </h2>
             {isEdit && (
-            <button className="btn btn-primary px-4 py-2">Edit Profile</button>)}
+            <button onClick={()=>setIsUpdate(true)} className="btn btn-primary px-4 py-2">Edit Profile</button>)}
             </div>
             <p className="text-xl text-blue-600 font-semibold mb-4">
               {doctor.specialization}
@@ -101,7 +103,7 @@ const DoctorDetail = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>)}
     </div>
   );
 };

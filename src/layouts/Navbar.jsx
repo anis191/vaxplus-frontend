@@ -83,6 +83,7 @@ const Navbar = () => {
                 )}
               </div></Link>
               <Link to="doctors" className="text-gray-700 hover:text-blue-700">Doctors</Link>
+              <Link to="dashboard/doctors_apply" className="text-gray-700 hover:text-blue-700">Apply As Doctor</Link>
               <Link to="dashboard" className="text-gray-700 hover:text-blue-700">Dashboard</Link>
               <a href="#" className="text-gray-700 hover:text-blue-700">About</a>
               <a href="#" className="text-gray-700 hover:text-blue-700">Contact</a>
@@ -156,6 +157,7 @@ const Navbar = () => {
                 )}
               </li></Link>
               <li><Link to="doctors" className="block text-gray-700 hover:text-blue-700">Doctors</Link></li>
+              <Link to="dashboard/doctors_apply" className="text-gray-700 hover:text-blue-700">Apply As Doctor</Link>
               <li><Link to="dashboard" className="block text-gray-700 hover:text-blue-700">Dashboard</Link></li>
               <li><a href="#" className="block text-gray-700 hover:text-blue-700">About</a></li>
               <li><a href="#" className="block text-gray-700 hover:text-blue-700">Contact</a></li>
