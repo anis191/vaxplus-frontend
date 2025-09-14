@@ -16,7 +16,7 @@ export default function Sidebar() {
         { to: "/dashboard", icon: FiBarChart2, label: "Overview" },
         { to: "/campaigns", icon: FiActivity, label: "All Campaigns" },
         { to: "/doctor-applications", icon: FiActivity, label: "Doctors Applications" },
-        { to: "/campaigns/add", icon: FiPlusCircle, label: "Add Campaign" },
+        { to: "/dashboard/add/campaign", icon: FiPlusCircle, label: "Add Campaign" },
         { to: "/category/add", icon: FiPlusCircle, label: "Add Category" },
         { to: "/vaccine/add", icon: FiPlusCircle, label: "Add Vaccine" },
         { to: "/participants", icon: FiUsers, label: "All Participants" },

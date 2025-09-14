@@ -1,4 +1,5 @@
 import { FiExternalLink } from "react-icons/fi";
+import { Link } from "react-router";
 
 const Doctor = ({doctor}) => {
   return (
@@ -8,9 +9,9 @@ const Doctor = ({doctor}) => {
         <div className="relative group">
           <img src={doctor.profile_picture} alt="doctor_profile" className="w-full h-60 object-cover"/>
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-end">
-            <button className="mb-4 px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center gap-2">
+            <Link to={`/doctors/${doctor.id}`}><button className="mb-4 px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 transition flex items-center gap-2">
               View Profile<FiExternalLink size={16} />
-            </button>
+            </button></Link>
           </div>
         </div>
 

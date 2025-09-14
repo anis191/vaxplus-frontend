@@ -27,6 +27,8 @@ const AddCampaign = ({ campaign, cDoctors }) => {
 
   useEffect(() => {
   if (!campaign) return;
+  console.log(cDoctors)
+  console.log(campaign)
   setValue("title", campaign.title || "");
   setValue("description", campaign.description || "");
   setValue("category", campaign.category || "");

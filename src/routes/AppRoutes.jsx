@@ -16,6 +16,8 @@ import VaccinationHistory from "../components/Dashboard/VaccinationHistory";
 import CampaignForm from "../components/Campaigns/CampaignForm";
 import EditCampaign from "../pages/EditCampaign";
 import Profile from "../pages/Profile";
+import Doctors from "../pages/Doctors";
+import DoctorDetail from "../pages/DoctorDetail";
 
 const AppRoutes = () => {
     return (
@@ -24,6 +26,8 @@ const AppRoutes = () => {
                 <Route path="/" element={<Home />}/>
                 <Route path="campaigns" element={<Campaign />}/>
                 <Route path="campaigns/:campaignId" element={<CampaignDetails />}/>
+                <Route path="doctors" element={<Doctors />}/>
+                <Route path="doctors/:doctorId" element={<DoctorDetail />}/>
                 <Route path="login" element={<Login />}/>
                 <Route path="register" element={<Register />}/>
                 <Route path="reset_password" element={<ResetPassword />}/>
