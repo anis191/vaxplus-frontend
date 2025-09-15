@@ -2,11 +2,14 @@ import TableSkeleton from "../components/Skeletons/TableSkeleton";
 import useFetchPayments from "../hooks/useFetchPayments";
 
 const PaymentHistory = () => {
-  const {payments} = useFetchPayments()
+  const {payments, loading} = useFetchPayments()
 
   const tableHeaders = ["Serial","Title","Amount","Transaction ID","Date","Status"]
 
-  if (!payments || payments.length === 0) return <TableSkeleton />
+  if (loading) return <TableSkeleton />
+  // if (!payments || payments.length === 0) return <TableSkeleton />
+  if (!payments || payments.length === 0)
+  return <div className="text-gray-500 text-center py-8">No payment history found.</div>
 
   return (
     <div className="overflow-x-auto">

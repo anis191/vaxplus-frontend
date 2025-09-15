@@ -7,8 +7,9 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CarouselSlide from "./CarouselSlide";
 import banner2 from "../../../assets/images/bannerImage2.jpg"
-import banner3 from "../../../assets/images/CRI1.jpg"
+// import banner3 from "../../../assets/images/CRI1.jpg"
 import banner4 from "../../../assets/images/CRSI1.jpg"
+import banner3 from "../../../assets/images/FluN1.jpg"
 
 const HeroCarousel = () => {
     const slides = [
