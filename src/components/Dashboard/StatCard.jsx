@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { FiUsers, FiActivity, FiStar, FiFileText, FiCreditCard } from "react-icons/fi";
 import authApiClient from "../../services/auth-api-client";
-import CampaignSkeleton from "../Skeletons/CampaignSkeleton";
+// import CampaignSkeleton from "../Skeletons/CampaignSkeleton";
 import useAuthContext from "../../hooks/useAuthContext";
+import DashboardStatusSkeleton from "../Skeletons/DashboardSkeletons";
 
 const StatCard = () => {
   const [stats, setStats] = useState(null);
@@ -26,7 +27,7 @@ const StatCard = () => {
 
   if (loading) {
     return (
-      <div className="w-full flex justify-center items-center my-3"><CampaignSkeleton /></div>
+      <div className="w-full flex justify-center items-center my-3"><DashboardStatusSkeleton /></div>
     );
   }
 

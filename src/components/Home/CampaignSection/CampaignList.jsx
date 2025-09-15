@@ -5,6 +5,7 @@ import CampaignSummary from "../../Campaigns/CampaignSummary";
 import CardGroup from "./CardGroup";
 import apiClient from "../../../services/api-client"
 import CampaignSkeleton from "../../Skeletons/CampaignSkeleton"
+import { Link } from "react-router";
 
 const CampaignList = () => {
   const [campaignsDatas, setCampaignsDatas] = useState(null)
@@ -52,9 +53,9 @@ const CampaignList = () => {
             {obj.campaign_summary.map((summary) => (
               <CampaignSummary key={summary.id} campaign={summary}/>
             ))}
-            <button className="px-6 py-2 bg-blue-600 text-white font-medium rounded-full shadow-md hover:bg-blue-700 transition-all duration-300 ease-in-out sm:w-auto text-center">
+            <Link to="/campaigns"><button className="px-6 py-2 bg-blue-600 text-white font-medium rounded-full shadow-md hover:bg-blue-700 transition-all duration-300 ease-in-out sm:w-auto text-center">
               View all
-            </button>
+            </button></Link>
           </div>
           ))}
         </div>

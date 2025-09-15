@@ -11,7 +11,7 @@ const CarouselSlide = ({ title,subtitle,image,btn_text }) => {
                 </div>
 
                 {/* content */}
-                <div className="bg-white/90 p-4 space-y-3 md:absolute md:top-0 md:left-20 md:w-[40%] md:space-y-5 md:p-6">
+                <div className="bg-white p-4 space-y-3 md:absolute md:top-0 md:left-20 md:w-[40%] md:space-y-5 md:p-6">
                     <h2 className="text-lg md:text-2xl font-bold text-black text-center md:text-left px-5 md:px-0">
                         {title}
                     </h2>
