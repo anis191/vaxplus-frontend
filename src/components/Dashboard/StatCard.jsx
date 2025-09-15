@@ -47,15 +47,15 @@ const StatCard = () => {
   } else if (user.role == "Doctor") {
     stateData.push(
       { icon: FiActivity, label: "Involved Campaigns", value: stats.involved_campaigns },
-      { icon: FiFileText, label: "All Bookings", value: stats.all_booking },
-      { icon: FiCreditCard, label: "Payments", value: `$${stats.total_payment}` }
+      { icon: FiFileText, label: "Bookings Under You", value: stats.all_booking },
+      { icon: FiCreditCard, label: "Your Campaigns Earn", value: `$${stats.total_payment}` }
     );
   } else if (user.role == "Patient") {
     stateData.push(
       { icon: FiActivity, label: "Campaigns", value: stats.total_campaigns },
       { icon: FiFileText, label: "Booked", value: stats.total_booked },
       { icon: FiStar, label: "Doses Taken", value: stats.total_vaccine_dose },
-      { icon: FiCreditCard, label: "Payments", value: `$${stats.total_payment}` }
+      { icon: FiCreditCard, label: "Your Payments", value: `$${stats.total_payment}` }
     );
   }
 
@@ -67,7 +67,7 @@ const StatCard = () => {
           <div key={index} className="card bg-base-100 shadow-md hover:shadow-lg transition p-4">
             <div className="flex items-center gap-2">
               <Icon className="h-6 w-6 text-primary" />
-              <h3 className="text-sm font-medium">{item.label}</h3>
+              <h3 className="text-md font-medium">{item.label}</h3>
             </div>
             <p className="mt-2 text-2xl font-bold">{item.value}</p>
           </div>
