@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuthContext from "../hooks/useAuthContext";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Login = () => {
   const[loading, setLoading] = useState(false)
@@ -63,9 +63,9 @@ const Login = () => {
                         
               {/* Forgot Password */}
               <label className="label">
-                <a href="/forgot-password" className="label-text-alt link link-primary text-sm sm:text-base">
+                <Link to="/reset_password" className="label-text-alt link link-primary text-sm sm:text-base">
                   Forgot Password?
-                </a>
+                </Link>
               </label>
             </div>
           </div>
