@@ -41,7 +41,7 @@ const CampaignDetailsTabs = ({campaign}) => {
               {activeTab === "vaccines" && ( <VaccinesInfo campaign={campaign}/> )}
               {activeTab === "doctors" && ( <DoctorsInfo campaign={campaign} /> )}
               {activeTab === "Appointment" && ( <Appointment paid={paid} is_premium={campaign.is_premium} user={user} vaccine_details={campaign.vaccine_details} start_date={campaign.start_date} end_date={campaign.end_date} campaign_id={campaign.id} fee={campaign.registration_fee}/> )}
-              {activeTab === "reviews" && ( <Reviews /> )}
+              {activeTab === "reviews" && ( <Reviews campaignId={campaign.id}/> )}
             </div>
           </div>
 

@@ -1,0 +1,24 @@
+import Rating from "./Rating";
+
+const EditReviewForm = ({ editReview, setEditReview, onCancelEdit, onSaveEdit}) => {
+  return (
+    <div className="mt-4 space-y-4 bg-base-200 p-4 rounded-lg">
+      <div>
+        <label className="label-text font-medium mb-1 block">Rating</label>
+        <Rating rating={editReview.rating} onChange={(value) => setEditReview({...editReview, rating: value})}/>
+      </div>
+      <div>
+        <label className="label-text font-medium mb-1 block">Comment</label>
+        <textarea value={editReview.comment} onChange={(e)=>setEditReview({...editReview, comment:e.target.value})} className="textarea textarea-bordered w-full min-h-[100px]"/>
+      </div>
+      <div className="flex gap-2">
+        <button onClick={onSaveEdit} className="btn btn-sm btn-success">Save Changes</button>
+        <button onClick={onCancelEdit} className="btn btn-sm btn-ghost">
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default EditReviewForm;
