@@ -21,6 +21,15 @@ import DoctorDetail from "../pages/DoctorDetail";
 import BookingDetails from "../components/Booking/BookingDetails";
 import ApplicationForm from "../components/DoctorsApplication/ApplicationForm";
 import DoctorApplications from "../pages/DoctorApplications";
+import VaccineCard from "../components/Vaccines/VaccineDetail";
+import VaccineTable from "../components/Vaccines/VaccinesList";
+import VaccineForm from "../components/Vaccines/VaccineForm";
+import Categories from "../pages/CategoriesList";
+import CategoryForm from "../components/Dashboard/CategoryForm";
+import CenterForm from "../components/Dashboard/CenterForm";
+import CenterTable from "../pages/CentersList";
+import PaymentHistory from "../pages/PaymentHistory";
+import PatientProfilePage from "../pages/PatientProfilePage";
 
 const AppRoutes = () => {
     return (
@@ -28,6 +37,7 @@ const AppRoutes = () => {
             <Route element={<MainLayout />}>
                 <Route path="/" element={<Home />}/>
                 <Route path="campaigns" element={<Campaign />}/>
+                <Route path="vaccines" element={<VaccineCard />}/>
                 <Route path="campaigns/:campaignId" element={<CampaignDetails />}/>
                 <Route path="doctors" element={<Doctors />}/>
                 <Route path="doctors/:doctorId" element={<DoctorDetail />}/>
@@ -48,12 +58,20 @@ const AppRoutes = () => {
                 <Route path="booked_dose" element={<RegistrationsDoses />}/>
                 <Route path="vaccination_history" element={<VaccinationHistory />}/>
                 <Route path="add/campaign" element={<CampaignForm />}/>
+                <Route path="add/vaccine" element={<VaccineForm />}/>
+                <Route path="add/category" element={<CategoryForm />}/>
+                <Route path="add/center" element={<CenterForm />}/>
                 <Route path="campaign/:id/update" element={<EditCampaign />}/>
                 <Route path="booking_detail/:uuid" element={<BookingDetails />}/>
                 {/* <Route path="payment/success" element={<PaymentSuccess />}/> */}
                 <Route path="doctors_apply" element={<ApplicationForm />}/>
                 <Route path="doctor_applications" element={<DoctorApplications />}/>
                 <Route path="profile" element={<Profile />}/>
+                <Route path="patient_profile" element={<PatientProfilePage />}/>
+                <Route path="vaccines" element={<VaccineTable />}/>
+                <Route path="categories" element={<Categories />}/>
+                <Route path="centers" element={<CenterTable />}/>
+                <Route path="payments" element={<PaymentHistory />}/>
             </Route>
         </Routes>
     );

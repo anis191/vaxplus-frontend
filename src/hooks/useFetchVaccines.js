@@ -6,19 +6,21 @@ const useFetchVaccines = () => {
     const[vaccines, setVaccines] = useState([])
     const[err, setError] = useState("")
 
-    useEffect(() => {
-        const fetchVaccines = async () => {
-            try{
-                const response = await apiClient.get("/vaccines/")
-                setVaccines(response.data)
-            }catch(err){
-                setError(err)
-            }
+    const fetchVaccines = async () => {
+        try{
+            const response = await apiClient.get("/vaccines/")
+            setVaccines(response.data)
+        }catch(err){
+            setError(err)
         }
+    }
+
+    useEffect(() => {
         fetchVaccines()
     },[])
+    
     return{
-        vaccines, err
+        vaccines, err, fetchVaccines
     }
 };
 

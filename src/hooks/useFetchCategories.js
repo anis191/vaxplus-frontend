@@ -6,19 +6,21 @@ const useFetchCategories = () => {
     const[categories, setCategories] = useState([])
     const[err, setError] = useState("")
 
-    useEffect(() => {
-        const fetchCategory = async () => {
-            try{
-                const response = await apiClient.get("/categories/")
-                setCategories(response.data)
-            }catch(err){
-                setError(err)
-            }
+    const fetchCategory = async () => {
+        try{
+            const response = await apiClient.get("/categories/")
+            setCategories(response.data)
+        }catch(err){
+            setError(err)
         }
+    }
+
+    useEffect(() => {
         fetchCategory()
     },[])
+
     return{
-        categories, err
+        categories, err, fetchCategory
     }
 };
 

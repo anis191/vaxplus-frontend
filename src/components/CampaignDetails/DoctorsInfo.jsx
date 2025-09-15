@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import apiClient from "../../services/api-client";
 import TableSkeleton from "../Skeletons/TableSkeleton";
 import doctorAvatar from "../../assets/images/doctorAvatar.jpg";
+import { Link } from "react-router";
 
 const DoctorsInfo = ({ campaign }) => {
   const [doctors, setDoctors] = useState([]);
@@ -50,7 +51,7 @@ const DoctorsInfo = ({ campaign }) => {
                   <td className="border-b border-gray-200 bg-white px-1 sm:px-2 py-1 sm:py-2 text-xs sm:text-sm">
                     <div className="flex items-center gap-1 sm:gap-2">
                       <div className="h-6 w-6 sm:h-8 sm:w-8 flex-shrink-0">
-                        <img className="h-full w-full rounded-full" src={doctor.image || doctorAvatar} alt={doctor.name}/>
+                        <img className="h-full w-full rounded-full" src={doctor.profile_picture || doctorAvatar} alt={doctor.name}/>
                       </div>
                       <div className="ml-1 sm:ml-2">
                         <p className="whitespace-nowrap">{doctor.name}</p>
@@ -63,9 +64,9 @@ const DoctorsInfo = ({ campaign }) => {
                   </td>
 
                   <td className="border-b border-gray-200 bg-white px-1 sm:px-2 py-1 sm:py-2 text-center">
-                    <button className="rounded-md bg-blue-600 px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-white transition duration-150 hover:bg-blue-700 focus:outline-none">
+                    <Link to={`/doctors/${doctor.doctor_profile}`}><button className="rounded-md bg-blue-600 px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-white transition duration-150 hover:bg-blue-700 focus:outline-none">
                       View Details
-                    </button>
+                    </button></Link>
                   </td>
                 </tr>
               ))}

@@ -18,7 +18,7 @@ const DoctorDetail = () => {
     const fetchDoctor = async () => {
       try {
         const response = await apiClient.get(`/doctors/${doctorId}/`)
-        if(response.data.bio.id === user.id){setIsEdit(true)}
+        if(user && response.data.bio.id === user.id){setIsEdit(true)}
         setDoctor(response.data);
       } catch (error) {
         console.error("Failed to fetch doctor:", error)

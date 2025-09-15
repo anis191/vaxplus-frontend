@@ -1,4 +1,4 @@
-import { FiEye } from "react-icons/fi";
+import VaccineDetailsModal from "../Vaccines/VaccineDetail";
 
 const VaccinesInfo = ({ campaign }) => {
   if (!campaign?.vaccine_details || campaign.vaccine_details.length === 0) {
@@ -35,13 +35,7 @@ const VaccinesInfo = ({ campaign }) => {
                 {vaccine.dose_gap} days
               </p>
             </div>
-
-            {/* view details */}
-            <div className="mt-4 flex justify-end">
-              <button className="flex items-center gap-1 px-3 py-1 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition focus:outline-none">
-                <FiEye className="text-base" /> View Details
-              </button>
-            </div>
+            <VaccineDetailsModal vaccine_id={vaccine.id}/>
             </div>
           </li>
         ))}

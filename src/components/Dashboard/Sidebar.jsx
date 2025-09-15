@@ -15,11 +15,15 @@ export default function Sidebar() {
     ? [
         { to: "/dashboard", icon: FiBarChart2, label: "Overview" },
         { to: "/campaigns", icon: FiActivity, label: "All Campaigns" },
+        { to: "/dashboard/vaccines", icon: FiActivity, label: "All Vaccines" },
+        { to: "/dashboard/categories", icon: FiActivity, label: "All Categories" },
+        { to: "/dashboard/centers", icon: FiActivity, label: "All Centers" },
         { to: "/dashboard/doctor_applications", icon: FiActivity, label: "Doctors Applications" },
         { to: "/dashboard/add/campaign", icon: FiPlusCircle, label: "Add Campaign" },
-        { to: "/category/add", icon: FiPlusCircle, label: "Add Category" },
-        { to: "/vaccine/add", icon: FiPlusCircle, label: "Add Vaccine" },
-        { to: "/participants", icon: FiUsers, label: "All Participants" },
+        { to: "/dashboard/add/category", icon: FiPlusCircle, label: "Add Category" },
+        { to: "/dashboard/add/vaccine", icon: FiPlusCircle, label: "Add Vaccine" },
+        { to: "/dashboard/add/center", icon: FiPlusCircle, label: "Add Center" },
+        { to: "/dashboard/payments", icon: FiUsers, label: "All Payments" },
         { to: "/reports", icon: FiFileText, label: "Reports" },
       ]
     : user?.role === "Doctor"
@@ -27,16 +31,20 @@ export default function Sidebar() {
         { to: "/dashboard", icon: FiBarChart2, label: "Overview" },
         { to: "/campaigns", icon: FiActivity, label: "Your Campaigns" },
         { to: "/dashboard/add/campaign", icon: FiPlusCircle, label: "Add Campaign" },
-        { to: "/category/add", icon: FiPlusCircle, label: "Add Category" },
-        { to: "/vaccine/add", icon: FiPlusCircle, label: "Add Vaccine" },
+        { to: "/dashboard/add/category", icon: FiPlusCircle, label: "Add Category" },
+        { to: "/dashboard/add/vaccine", icon: FiPlusCircle, label: "Add Vaccine" },
+        { to: "/dashboard/add/center", icon: FiPlusCircle, label: "Add Center" },
         { to: "/dashboard/booked_dose", icon: FiUsers, label: "Manage Your Patients" },
+        { to: "/dashboard/payments", icon: FiUsers, label: "Your Payments History" },
         { to: "/reports", icon: FiFileText, label: "Reports" },
       ]
     : [
         { to: "/dashboard", icon: FiBarChart2, label: "My Dashboard" },
+        { to: "/dashboard/patient_profile", icon: FiBarChart2, label: "My Patient Profile" },
         { to: "/campaigns", icon: FiActivity, label: "Campaigns" },
         { to: "/dashboard/booked_dose", icon: FiUsers, label: "My Registrations" },
         { to: "/dashboard/vaccination_history", icon: FiUsers, label: "My Vaccination History" },
+        { to: "/dashboard/payments", icon: FiUsers, label: "My Payments History" },
       ];
 
   return (
