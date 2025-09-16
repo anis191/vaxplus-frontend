@@ -30,6 +30,8 @@ import CenterForm from "../components/Dashboard/CenterForm";
 import CenterTable from "../pages/CentersList";
 import PaymentHistory from "../pages/PaymentHistory";
 import PatientProfilePage from "../pages/PatientProfilePage";
+import AboutPage from "../pages/About";
+import ContactPage from "../pages/Contact";
 
 const AppRoutes = () => {
     return (
@@ -47,6 +49,8 @@ const AppRoutes = () => {
                 <Route path="activate/:uid/:token" element={<ActivateAccount />}/>
                 <Route path="password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />}/>
                 {/* <Route path="test/:id" element={<Test />}/> */}
+                <Route path="about" element={<AboutPage />}/>
+                <Route path="contact" element={<ContactPage />}/>
             </Route>
 
             {/* Private Routes */}

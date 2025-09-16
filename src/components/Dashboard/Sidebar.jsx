@@ -4,48 +4,51 @@ import {
   FiActivity,
   FiFileText,
   FiPlusCircle,
+  FiCreditCard,
+  FiUser,
+  FiMapPin,
+  FiTag,
 } from "react-icons/fi";
 import { Link } from "react-router";
 import useAuthContext from "../../hooks/useAuthContext";
 
 export default function Sidebar() {
   const { user } = useAuthContext();
-
-  const menuItems = user?.is_staff
-    ? [
-        { to: "/dashboard", icon: FiBarChart2, label: "Overview" },
-        { to: "/campaigns", icon: FiActivity, label: "All Campaigns" },
-        { to: "/dashboard/vaccines", icon: FiActivity, label: "All Vaccines" },
-        { to: "/dashboard/categories", icon: FiActivity, label: "All Categories" },
-        { to: "/dashboard/centers", icon: FiActivity, label: "All Centers" },
-        { to: "/dashboard/doctor_applications", icon: FiActivity, label: "Doctors Applications" },
-        { to: "/dashboard/add/campaign", icon: FiPlusCircle, label: "Add Campaign" },
-        { to: "/dashboard/add/category", icon: FiPlusCircle, label: "Add Category" },
-        { to: "/dashboard/add/vaccine", icon: FiPlusCircle, label: "Add Vaccine" },
-        { to: "/dashboard/add/center", icon: FiPlusCircle, label: "Add Center" },
-        { to: "/dashboard/payments", icon: FiUsers, label: "All Payments" },
-        { to: "/reports", icon: FiFileText, label: "Reports" },
-      ]
-    : user?.role === "Doctor"
-    ? [
-        { to: "/dashboard", icon: FiBarChart2, label: "Overview" },
-        { to: "/campaigns", icon: FiActivity, label: "Your Campaigns" },
-        { to: "/dashboard/add/campaign", icon: FiPlusCircle, label: "Add Campaign" },
-        { to: "/dashboard/add/category", icon: FiPlusCircle, label: "Add Category" },
-        { to: "/dashboard/add/vaccine", icon: FiPlusCircle, label: "Add Vaccine" },
-        { to: "/dashboard/add/center", icon: FiPlusCircle, label: "Add Center" },
-        { to: "/dashboard/booked_dose", icon: FiUsers, label: "Manage Your Patients" },
-        { to: "/dashboard/payments", icon: FiUsers, label: "Your Payments History" },
-        { to: "/reports", icon: FiFileText, label: "Reports" },
-      ]
-    : [
-        { to: "/dashboard", icon: FiBarChart2, label: "My Dashboard" },
-        { to: "/dashboard/patient_profile", icon: FiBarChart2, label: "My Patient Profile" },
-        { to: "/campaigns", icon: FiActivity, label: "Campaigns" },
-        { to: "/dashboard/booked_dose", icon: FiUsers, label: "My Registrations" },
-        { to: "/dashboard/vaccination_history", icon: FiUsers, label: "My Vaccination History" },
-        { to: "/dashboard/payments", icon: FiUsers, label: "My Payments History" },
-      ];
+      const menuItems = user?.is_staff
+        ? [
+            { to: "/dashboard", icon: <FiBarChart2 className="text-indigo-500" />, label: "Overview" },
+            { to: "/campaigns", icon: <FiActivity className="text-green-500" />, label: "All Campaigns" },
+            { to: "/dashboard/vaccines", icon: <FiActivity className="text-red-500" />, label: "All Vaccines" },
+            { to: "/dashboard/categories", icon: <FiTag className="text-yellow-500" />, label: "All Categories" },
+            { to: "/dashboard/centers", icon: <FiMapPin className="text-blue-500" />, label: "All Centers" },
+            { to: "/dashboard/doctor_applications", icon: <FiUser className="text-pink-500" />, label: "Doctors Applications" },
+            { to: "/dashboard/add/campaign", icon: <FiPlusCircle className="text-green-500" />, label: "Add Campaign" },
+            { to: "/dashboard/add/category", icon: <FiPlusCircle className="text-yellow-500" />, label: "Add Category" },
+            { to: "/dashboard/add/vaccine", icon: <FiPlusCircle className="text-red-500" />, label: "Add Vaccine" },
+            { to: "/dashboard/add/center", icon: <FiPlusCircle className="text-blue-500" />, label: "Add Center" },
+            { to: "/dashboard/payments", icon: <FiCreditCard className="text-indigo-500" />, label: "All Payments" },
+            { to: "/reports", icon: <FiFileText className="text-gray-700" />, label: "Reports" },
+          ]
+        : user?.role === "Doctor"
+        ? [
+            { to: "/dashboard", icon: <FiBarChart2 className="text-indigo-500" />, label: "Overview" },
+            { to: "/campaigns", icon: <FiActivity className="text-green-500" />, label: "Your Campaigns" },
+            { to: "/dashboard/add/campaign", icon: <FiPlusCircle className="text-green-500" />, label: "Add Campaign" },
+            { to: "/dashboard/add/category", icon: <FiPlusCircle className="text-yellow-500" />, label: "Add Category" },
+            { to: "/dashboard/add/vaccine", icon: <FiPlusCircle className="text-red-500" />, label: "Add Vaccine" },
+            { to: "/dashboard/add/center", icon: <FiPlusCircle className="text-blue-500" />, label: "Add Center" },
+            { to: "/dashboard/booked_dose", icon: <FiUsers className="text-purple-500" />, label: "Manage Your Patients" },
+            { to: "/dashboard/payments", icon: <FiCreditCard className="text-indigo-500" />, label: "Your Payments History" },
+            { to: "/reports", icon: <FiFileText className="text-gray-700" />, label: "Reports" },
+          ]
+        : [
+            { to: "/dashboard", icon: <FiBarChart2 className="text-indigo-500" />, label: "My Dashboard" },
+            { to: "/dashboard/patient_profile", icon: <FiUser className="text-pink-500" />, label: "My Patient Profile" },
+            { to: "/campaigns", icon: <FiActivity className="text-green-500" />, label: "Campaigns" },
+            { to: "/dashboard/booked_dose", icon: <FiUsers className="text-purple-500" />, label: "My Registrations" },
+            { to: "/dashboard/vaccination_history", icon: <FiActivity className="text-red-500" />, label: "My Vaccination History" },
+            { to: "/dashboard/payments", icon: <FiCreditCard className="text-indigo-500" />, label: "My Payments History" },
+          ];
 
   return (
     <div className="drawer-side z-10">
@@ -60,10 +63,10 @@ export default function Sidebar() {
         </div>
 
         <ul className="menu menu-md gap-2">
-          {menuItems.map(({ to, icon: Icon, label }, idx) => (
+          {menuItems.map(({ to, icon, label }, idx) => (
             <li key={idx}>
               <Link to={to}>
-                <Icon className="h-4 w-4" /> {label}
+                {icon} {label}
               </Link>
             </li>
           ))}

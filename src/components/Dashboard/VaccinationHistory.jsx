@@ -30,29 +30,29 @@ export default function VaccinationHistory() {
   }
 
   if (!records.length) {
-    return <p className="text-gray-500">You have no vaccination records yet.</p>;
+    return <p className="text-gray-500 text-center mt-6">You have no vaccination records yet.</p>;
   }
 
   return (
     <div className="overflow-x-auto">
-      <table className="table w-full border">
-        <thead>
-          <tr className="bg-base-200">
-            <th>#</th>
-            <th>Campaign ID</th>
-            <th>Vaccine</th>
-            <th>Dose Number</th>
-            <th>Date</th>
+      <table className="table w-full border border-gray-200 shadow-md rounded-lg overflow-hidden">
+        <thead className="bg-indigo-100 text-indigo-800 uppercase text-sm font-semibold">
+          <tr>
+            <th className="px-4 py-2">#</th>
+            <th className="px-4 py-2">Campaign ID</th>
+            <th className="px-4 py-2">Vaccine</th>
+            <th className="px-4 py-2">Dose Number</th>
+            <th className="px-4 py-2">Date</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="bg-white divide-y divide-gray-200">
           {records.map((r, idx) => (
-            <tr key={r.id} className="hover">
-              <td>{idx + 1}</td>
-              <td>{r.campaign}</td>
-              <td>{r.vaccine}</td>
-              <td>{r.dose_number}</td>
-              <td>{r.given_date}</td>
+            <tr key={r.id} className="hover:bg-indigo-50 transition-colors duration-200">
+              <td className="px-4 py-2 text-gray-700 font-medium">{idx + 1}</td>
+              <td className="px-4 py-2 text-gray-600">{r.campaign}</td>
+              <td className="px-4 py-2 text-gray-600">{r.vaccine}</td>
+              <td className="px-4 py-2 text-gray-600">{r.dose_number}</td>
+              <td className="px-4 py-2 text-gray-600">{r.given_date}</td>
             </tr>
           ))}
         </tbody>
