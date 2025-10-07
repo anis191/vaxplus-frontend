@@ -21,7 +21,7 @@ const VaccineDetailsModal = ({vaccine_id}) => {
   return (
     <>
     <div onClick={openModal} className="mt-4 flex justify-end">
-        <button className="flex items-center gap-1 px-3 py-1 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition focus:outline-none">
+        <button className="flex items-center gap-1 px-3 py-1 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition focus:outline-none cursor-pointer">
         <FiEye className="text-base" /> View Details
         </button>
     </div>

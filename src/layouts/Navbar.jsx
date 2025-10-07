@@ -15,13 +15,12 @@ import {
   FiBarChart2,
   FiInfo,
   FiMessageCircle,
-  FiChevronDown,
+  // FiChevronDown,
   FiMenu,
 } from "react-icons/fi";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [departmentsOpen, setDepartmentsOpen] = useState(false);
   const { user, logoutUser } = useAuthContext();
 
   return (
@@ -70,20 +69,10 @@ const Navbar = () => {
 
               <Link to="campaigns">
                 <div
-                  className="relative"
-                  onMouseEnter={() => setDepartmentsOpen(true)}
-                  onMouseLeave={() => setDepartmentsOpen(false)}
-                >
+                  className="relative">
                   <button className="cursor-pointer flex items-center gap-1 text-gray-700 hover:text-blue-700">
                     <FiCalendar /> Campaigns
                   </button>
-                  {/* {departmentsOpen && ( */}
-                    {/* // <div className="absolute bg-white shadow-md rounded-md mt-2 w-40 z-50"> */}
-                      {/* <Link to="campaigns" className="block px-4 py-2 hover:bg-gray-100">Upcoming</Link> */}
-                      {/* <Link to="campaigns" className="block px-4 py-2 hover:bg-gray-100">Ongoing</Link> */}
-                      {/* <Link to="campaigns" className="block px-4 py-2 hover:bg-gray-100">Ended</Link> */}
-                    {/* </div> */}
-                  {/* // )} */}
                 </div>
               </Link>
 
@@ -149,33 +138,72 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white shadow-md z-50">
             <ul className="px-4 py-2 space-y-2">
-              <li><Link to="/" className="flex items-center gap-2 text-gray-700 hover:text-blue-700"><FiHome /> Home</Link></li>
-              <Link to="campaigns">
-                <li>
-                  <button
-                    className="w-full text-left flex items-center justify-between text-gray-700 hover:text-blue-700"
-                    onClick={() => setDepartmentsOpen(!departmentsOpen)}
-                  >
-                    <span className="flex items-center gap-2"><FiCalendar /> Campaigns</span>
-                    <FiChevronDown />
-                  </button>
-                  {departmentsOpen && (
-                    <ul className="pl-6 mt-1 space-y-1">
-                      <li><a href="#" className="block text-gray-700 hover:text-blue-700">Upcoming</a></li>
-                      <li><a href="#" className="block text-gray-700 hover:text-blue-700">Ongoing</a></li>
-                      <li><a href="#" className="block text-gray-700 hover:text-blue-700">Ended</a></li>
-                    </ul>
-                  )}
-                </li>
-              </Link>
-              <li><Link to="doctors" className="flex items-center gap-2 text-gray-700 hover:text-blue-700"><FiUsers /> Doctors</Link></li>
-              <li><Link to="dashboard/doctors_apply" className="flex items-center gap-2 text-gray-700 hover:text-blue-700"><FiUserPlus /> Apply As Doctor</Link></li>
-              <li><Link to="dashboard" className="flex items-center gap-2 text-gray-700 hover:text-blue-700"><FiBarChart2 /> Dashboard</Link></li>
-              <li><Link to="/about" className="flex items-center gap-2 text-gray-700 hover:text-blue-700"><FiInfo /> About</Link></li>
-              <li><Link to="/contact" className="flex items-center gap-2 text-gray-700 hover:text-blue-700"><FiMessageCircle /> Contact</Link></li>
+              <li>
+                <Link
+                  to="/"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FiHome /> Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="campaigns"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FiCalendar /> Campaigns
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="doctors"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FiUsers /> Doctors
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="dashboard/doctors_apply"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FiUserPlus /> Apply As Doctor
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="dashboard"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FiBarChart2 /> Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FiInfo /> About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="flex items-center gap-2 text-gray-700 hover:text-blue-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FiMessageCircle /> Contact
+                </Link>
+              </li>
               {!user && (
                 <li>
-                  <Link to="/login">
+                  <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
                     <button className="block w-full text-center px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition">
                       Register / Log In
                     </button>

@@ -2,8 +2,9 @@ import { useParams } from "react-router";
 import CampaignDetail from "../components/CampaignDetails/CampaignDetail"
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import CampaignSkeleton from "../components/Skeletons/CampaignSkeleton";
+// import CampaignSkeleton from "../components/Skeletons/CampaignSkeleton";
 import Error from "../components/Common/Error";
+import CampaignDetailsSkeleton from "../components/Skeletons/CampaignDetailsSkeleton";
 
 const CampaignDetails = () => {
     const {campaignId} = useParams()
@@ -19,7 +20,7 @@ const CampaignDetails = () => {
             .finally(() => setLoading(false));     
     },[campaignId])
 
-    if(loading) return(<div className="flex justify-center my-3"><CampaignSkeleton /></div>)
+    if(loading) return(<div className="flex justify-center my-3"><CampaignDetailsSkeleton /></div>)
     if(error) return(<Error />)
     if(!campaign) return(<p>Campaign Not Fount</p>)
 
