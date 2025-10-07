@@ -20,9 +20,9 @@ const Doctor = ({doctor}) => {
           <h3 className="text-xl font-semibold text-gray-900">
             {doctor.bio.first_name} {doctor.bio.last_name}
           </h3>
-          <p className="text-sm text-blue-600 font-medium mt-1">
+          <span className="inline-block mt-2 px-3 py-1 text-sm font-medium text-blue-700 bg-blue-100 rounded-full">
             {doctor.specialization}
-          </p>
+          </span>
           <div className="mt-3 text-gray-600 text-sm">
             <p>{doctor.contact}</p>
             <p className="mt-1">{doctor.bio.phone_number}</p>

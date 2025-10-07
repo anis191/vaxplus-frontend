@@ -1,18 +1,23 @@
-// import React from 'react';
+const SectionHeaderE = () => {
+  return (
+    <div className="max-w-[1200px] mx-auto my-6 px-4 md:px-0 text-left">
+      <p
+        className="font-semibold font-serif text-[#1A3B6B] tracking-tight"
+        style={{ fontSize: 'clamp(1rem, 1.5vw + 0.5rem, 1.75rem)' }}>
+        VaxPlus Vaccination Organization
+      </p>
 
-const SectionHeader = () => {
-    return (
-        <div>
-            <div className="max-w-[1200px] mx-auto my-5 text-xl font-medium text-red-400 pl-3 md:pl-0">
-                <p className="text-base sm:text-lg md:text-xl font-semibold font-serif text-[#800000] tracking-wide">
-                    VaxPlus Vaccination Organization
-                </p>
-                <h3 className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-600 mt-1 border-l-gray-500 border-l-4 border-indigo-500 pl-2">
-                    VaxPlus Highlights
-                </h3>
-            </div>
-        </div>
-    );
+      <h3
+        className="relative mt-1 font-bold border-l-4 border-sky-500 pl-2 inline-block text-sky-700 overflow-hidden"
+        style={{ fontSize: 'clamp(0.875rem, 1.2vw + 0.5rem, 1.5rem)' }}>
+        <span className="text-[#1A3B6B]">Vax</span>
+        <span className="text-[#2BA8FF]">Plus</span>{" "}
+        <span className="text-[#1A3B6B]">Highlights</span>
+
+        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/70 to-transparent animate-diamondSheen"></span>
+      </h3>
+    </div>
+  );
 };
 
-export default SectionHeader;
+export default SectionHeaderE;

@@ -5,6 +5,46 @@
    themes: light --default;
  }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes diamondSheen {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(100%) rotate(30deg);
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.animate-diamondSheen {
+  animation: diamondSheen 6s ease-in-out infinite;
+  mix-blend-mode: overlay;
+}
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

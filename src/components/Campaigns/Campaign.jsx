@@ -14,11 +14,20 @@ const Campaign = ({campaign, heading}) => {
       <div>
       {heading && (
       <div>
-        <h2 className="relative mb-6 text-2xl md:text-3xl font-bold text-gray-900 inline-block pb-4">
-          <span className="relative z-10">{campaign.status}</span>
+        {/* <h2 className="relative mb-6 text-xl md:text-2xl font-bold text-gray-900 inline-block pb-4"> */}
+        <h2 className="relative mb-6 text-2xl md:text-3xl font-semibold text-gray-900 inline-block pb-4">
+          <span className={`relative z-10 ${
+              campaign.status === "Ongoing"
+                ? "text-green-600"
+                : campaign.status === "Upcoming"
+                ? "text-blue-600"
+                : "text-gray-600"
+            }`}> {campaign.status} </span>
+          
           <span className="relative z-10 ml-2">Campaigns</span>
-          <span className="absolute left-0 bottom-0 h-[2px] w-full bg-blue-400"></span>
-          <span className="absolute left-0 bottom-0 h-[4px] w-[110px] bg-blue-600"></span>
+          
+          <span className="absolute left-0 bottom-0 h-[2px] w-full bg-sky-200"></span>
+          <span className="absolute left-0 bottom-0 h-[4px] w-[110px] bg-sky-500"></span>
         </h2>
       </div>)}
       

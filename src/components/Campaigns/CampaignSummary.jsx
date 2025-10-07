@@ -15,7 +15,7 @@ const CampaignSummary = ({campaign}) => {
               <h3 className="cursor-pointer text-sm leading-snug font-semibold hover:text-blue-600">{campaign.title}</h3>
               <div className="flex justify-between items-center">
                 <p className="mt-1 text-xs text-gray-500">{date}</p>
-                <span className="ml-2 inline-block rounded px-2 py-0.5 text-xs font-semibold bg-blue-100 text-blue-700">Free</span>
+                <span className={`ml-2 inline-block rounded px-2 py-0.5 text-xs font-semibold ${campaign.is_premium ? "bg-yellow-100 text-yellow-700" : "bg-blue-100 text-blue-700"}`}>{campaign.is_premium ? "Premium" : "Free"}</span>
               </div>
             </div>
         </div>

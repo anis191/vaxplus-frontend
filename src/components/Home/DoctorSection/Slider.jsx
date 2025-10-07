@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import CampaignSkeleton from "../../Skeletons/CampaignSkeleton"
 import Error from "../../Common/Error"
 
 // Import Swiper styles
@@ -10,6 +9,7 @@ import 'swiper/css/navigation';
 import {Autoplay, Pagination } from "swiper/modules";
 import Doctor from "../../Doctors/Doctor";
 import useFetchDoctors from "../../../hooks/useFetchDoctors";
+import DoctorSkeleton from '../../Skeletons/DoctorSkeleton';
 
 export default function App() {
     const {doctors, loading, error} = useFetchDoctors()
@@ -28,32 +28,42 @@ export default function App() {
         </p>
     </div>
 
-      {loading &&(<div className="flex justify-center"><CampaignSkeleton /></div>)}
-      {/* {error &&(<div className="flex justify-center"><Error message={error} /></div>)} */}
-
+    {loading ? (
       <Swiper
         slidesPerView={3}
         spaceBetween={10}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-        }}
-        modules={[Pagination, Autoplay]}
         breakpoints={{
-            0: { slidesPerView: 1, spaceBetween: 12 },
-            640: { slidesPerView: 2, spaceBetween: 16 },
-            1024: { slidesPerView: 3, spaceBetween: 10 },
+          0: { slidesPerView: 1, spaceBetween: 12 },
+          640: { slidesPerView: 2, spaceBetween: 16 },
+          1024: { slidesPerView: 3, spaceBetween: 10 },
         }}
         className="mySwiper">
-            {doctors.map((doctor)=>(
-                <SwiperSlide key={doctor.id}>
-                    <Doctor doctor={doctor}/>
-                </SwiperSlide>
-            ))}
+        {[...Array(3)].map((_, index) => (
+          <SwiperSlide key={index}>
+            <DoctorSkeleton />
+          </SwiperSlide>
+        ))}
       </Swiper>
+    ) : (
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={10}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        modules={[Pagination, Autoplay]}
+        breakpoints={{
+          0: { slidesPerView: 1, spaceBetween: 12 },
+          640: { slidesPerView: 2, spaceBetween: 16 },
+          1024: { slidesPerView: 3, spaceBetween: 10 },
+        }}
+        className="mySwiper">
+        {doctors.map((doctor) => (
+          <SwiperSlide key={doctor.id}>
+            <Doctor doctor={doctor} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    )}
     </>
   );
 }
