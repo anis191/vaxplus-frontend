@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FiCalendar, FiPhone, FiMapPin, FiDroplet, FiEdit2 } from "react-icons/fi";
 import authApiClient from "../../../services/auth-api-client";
+import profile_avatar from "../../../assets/images/profile-avatar.png"
 
 const PatientProfileForm = ({ patient, setPatient }) => {
   const [loading, setLoading] = useState(false);
@@ -44,7 +45,7 @@ const PatientProfileForm = ({ patient, setPatient }) => {
           <div className="col-span-1 bg-white rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center">
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-3 md:mb-4 border-4 border-indigo-300 shadow-md">
               <img
-                src={patient.user.avatar || "https://via.placeholder.com/150"}
+                src={profile_avatar}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />

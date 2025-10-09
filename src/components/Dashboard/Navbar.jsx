@@ -3,7 +3,8 @@ import { Link } from "react-router";
 import useAuthContext from "../../hooks/useAuthContext";
 
 export default function Navbar({ sidebarOpen, toggleSidebar }) {
-  const { logoutUser } = useAuthContext();
+  const { user, logoutUser } = useAuthContext();
+  console.log(user)
 
   return (
     <div className="navbar bg-base-100 border-b shadow-sm">
@@ -13,7 +14,7 @@ export default function Navbar({ sidebarOpen, toggleSidebar }) {
         </button>
       </div>
       <div className="flex-1">
-        <h2 className="text-lg font-semibold text-primary">VaxPlus Dashboard</h2>
+        <h2 className="text-lg font-semibold text-primary">{user.is_staff ? "Admin" : user.role == 'Doctor' ? "Doctor" : "Your"} Dashboard</h2>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">

@@ -1,3 +1,4 @@
+import { FiCreditCard } from "react-icons/fi";
 import TableSkeleton from "../components/Skeletons/TableSkeleton";
 import useFetchPayments from "../hooks/useFetchPayments";
 
@@ -18,6 +19,13 @@ const PaymentHistory = () => {
 
   return (
     <div className="overflow-x-auto">
+      {/* Header */}
+      <div className="flex items-center justify-center my-4">
+        <FiCreditCard className="text-indigo-500 h-6 w-6 mr-2" />
+        <h2 className="text-lg md:text-xl font-semibold text-gray-600">
+          All Payments
+        </h2>
+      </div>
       {/* Desktop Table */}
       <div className="hidden md:block rounded-lg overflow-hidden shadow-lg border border-gray-200">
         <table className="min-w-full bg-white">

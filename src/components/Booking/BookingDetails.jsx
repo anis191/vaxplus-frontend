@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { FiCalendar, FiMapPin, FiUser, FiActivity, FiInfo } from "react-icons/fi";
 import { useParams } from "react-router";
 import authApiClient from "../../services/auth-api-client";
-import CampaignSkeleton from "../Skeletons/CampaignSkeleton";
 import BookingCard from "./BookingCard";
+import BookingDetailsSkeleton from "../Skeletons/BookingDetailsSkeleton";
 
 const BookingDetails = () => {
     const {uuid} = useParams()
@@ -29,7 +29,7 @@ const BookingDetails = () => {
     if(loading) 
         return (
             <div className="w-full flex justify-center my-5">
-                <CampaignSkeleton />
+                <BookingDetailsSkeleton />
             </div>
         )
 

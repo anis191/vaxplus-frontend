@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import authApiClient from "../../services/auth-api-client";
-import { FiLoader } from "react-icons/fi";
+import { FiActivity, FiLoader } from "react-icons/fi";
 
 export default function VaccinationHistory() {
   const [records, setRecords] = useState([]);
@@ -35,6 +35,14 @@ export default function VaccinationHistory() {
 
   return (
     <div className="overflow-x-auto">
+      {/* Header */}
+      <div className="flex items-center justify-center my-4">
+        <FiActivity className="text-red-500 h-6 w-6 mr-2" />
+        <h2 className="text-xl font-semibold text-gray-600">
+         My Vaccination History
+        </h2>
+      </div>
+
       <table className="table w-full border border-gray-200 shadow-md rounded-lg overflow-hidden">
         <thead className="bg-indigo-100 text-indigo-800 uppercase text-sm font-semibold">
           <tr>

@@ -3,6 +3,7 @@ import useFetchVaccines from "../../hooks/useFetchVaccines";
 import TableSkeleton from "../Skeletons/TableSkeleton";
 import VaccineForm from "./VaccineForm";
 import authApiClient from "../../services/auth-api-client";
+import { FiActivity } from "react-icons/fi";
 
 const VaccineTable = () => {
   const { vaccines, fetchVaccines } = useFetchVaccines();
@@ -39,6 +40,14 @@ const VaccineTable = () => {
         {editingVaccine ? (
             <VaccineForm vaccine = {editingVaccine} onCancel={()=>setEditingVaccine(null)} onSuccess={() => {fetchVaccines(); setEditingVaccine(null)}}/>
         ) : (
+        <>
+        {/* Header with icon */}
+        <div className="flex items-center justify-center my-4">
+          <FiActivity className="text-red-500 h-6 w-6 mr-2" />
+          <h2 className="text-lg md:text-xl font-semibold text-gray-600">
+            All Vaccines
+          </h2>
+        </div>
       <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto">
         {dtl && (
           <div className="flex justify-center items-center mt-4">
@@ -78,7 +87,8 @@ const VaccineTable = () => {
             </tr>
           ))}
         </tbody>
-      </table>)}
+      </table></>
+    )}
     </div>
   );
 };

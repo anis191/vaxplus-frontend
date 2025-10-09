@@ -3,6 +3,7 @@ import useFetchCategories from "../hooks/useFetchCategories";
 import TableSkeleton from "../components/Skeletons/TableSkeleton";
 import authApiClient from "../services/auth-api-client";
 import CategoryForm from "../components/Dashboard/CategoryForm";
+import { FiTag } from "react-icons/fi";
 
 const Categories = () => {
   const { categories, fetchCategory } = useFetchCategories();
@@ -41,6 +42,13 @@ const Categories = () => {
               <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
             </div>
           )}
+        {/* Header */}
+        <div className="flex items-center justify-center my-4">
+          <FiTag className="text-yellow-500 h-6 w-6 mr-2" />
+          <h2 className="text-lg md:text-xl font-semibold text-gray-600">
+            All Categories
+          </h2>
+        </div>
           <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto">
             <thead className="bg-gray-100">
               <tr>

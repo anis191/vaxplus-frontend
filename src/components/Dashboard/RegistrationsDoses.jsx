@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import authApiClient from "../../services/auth-api-client";
-import { FiLoader, FiSettings } from "react-icons/fi";
+import { FiLoader, FiSettings, FiUsers } from "react-icons/fi";
 import { Link } from "react-router";
 import useAuthContext from "../../hooks/useAuthContext";
 
@@ -50,35 +50,42 @@ const RegistrationsDoses = () => {
 
   return (
     <div className="overflow-x-auto">
+      <div className="flex flex-col md:flex-row items-center justify-between mx-5 my-3">
+      {/* Header */}
+      <div className="flex items-center justify-center my-4">
+        <FiUsers className="text-purple-500 h-6 w-6 mr-2" />
+        <h2 className="text-lg md:text-xl font-semibold text-gray-600">
+         {user?.role == 'Doctor' ? "Manage Your Patients" : "My Booked Doses" }
+        </h2>
+      </div>
+
       {/* Filters & Search */}
       {(user?.is_staff || user?.role === "Doctor") && (
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 my-4 flex-wrap">
+        <div className="flex gap-2">
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="select select-bordered w-52"
-          >
-            <option value="">All Statuses</option>
+            className="select select-bordered input-sm md:input-md w-[40%] md:w-auto">
+            <option value="">All Status</option>
             <option value="Booked">Booked</option>
             <option value="FirstCompleted">FirstCompleted</option>
             <option value="SecondCompleted">SecondCompleted</option>
             <option value="Canceled">Canceled</option>
           </select>
 
-          <form onSubmit={handleSearch} className="flex gap-2 flex-wrap">
+          <form onSubmit={handleSearch} className="join">
             <input
               type="text"
               placeholder="Search by patient email..."
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              className="input input-bordered w-80"
+              className="input input-bordered join-item focus:outline-none input-sm md:input-md"
             />
-            <button type="submit" className="btn btn-primary">
-              Search
-            </button>
+            <button type="submit" className="btn btn-soft btn-primary btn-sm md:btn-md join-item">Search</button>
           </form>
         </div>
       )}
+      </div>
 
       {/* Table for large screens */}
       <div className="hidden md:block shadow-lg rounded-lg overflow-hidden border border-gray-200">
