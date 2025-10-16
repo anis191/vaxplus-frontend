@@ -46,15 +46,20 @@ const FilterSection = ({
 
       <dialog id="filter_modal" className="modal modal-top sm:modal-middle">
         <div className="modal-box p-4 sm:p-6 max-w-md w-full">
-          <h2 className="text-stone-700 text-base font-semibold mb-1">Filters</h2>
+          {/* <h2 className="text-stone-700 text-base font-semibold mb-1">Filters</h2> */}
+          <h2 className="text-blue-700 text-base font-bold mb-3 flex items-center gap-2">
+            <HiAdjustments className="text-blue-500" />
+            Filters
+          </h2>
 
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {/* Category */}
             <div className="flex flex-col">
-              <label htmlFor="category" className="text-xs text-stone-600">Category</label>
+              <label htmlFor="category" className="text-xs text-blue-700">Category</label>
               <select
                 id="category"
-                className="mt-1 px-2 py-0.5 text-xs border rounded focus:ring focus:ring-blue-200"
+                // className="mt-1 px-2 py-0.5 text-xs border rounded focus:ring focus:ring-blue-200"
+                className="mt-1 px-2 py-0.5 text-xs border border-blue-200 rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition-all duration-200 bg-white hover:border-blue-300 text-stone-600"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}>
                   {categories.map((categorie) => (
@@ -65,10 +70,10 @@ const FilterSection = ({
 
             {/* Is Premium */}
             <div className="flex flex-col">
-              <label htmlFor="is_premium" className="text-xs text-stone-600">Is Premium</label>
+              <label htmlFor="is_premium" className="text-xs text-blue-700">Is Premium</label>
               <select
                 id="is_premium"
-                className="mt-1 px-2 py-0.5 text-xs border rounded focus:ring focus:ring-blue-200"
+                className="mt-1 px-2 py-0.5 text-xs border border-blue-200 rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition-all duration-200 bg-white hover:border-blue-300 text-stone-600"
                 value={isPremium}
                 onChange={(e) => setIsPremium(e.target.value)}
               >
@@ -80,11 +85,11 @@ const FilterSection = ({
 
             {/* Start date gt*/}
             <div className="flex flex-col">
-              <label htmlFor="start_date_gt" className="text-xs text-stone-600">Start Date &gt;</label>
+              <label htmlFor="start_date_gt" className="text-xs text-blue-700">Start Date &gt;</label>
               <input
                 id="start_date_gt"
                 type="date"
-                className="mt-1 px-2 py-0.5 text-xs border rounded focus:ring focus:ring-blue-200"
+                className="mt-1 px-2 py-0.5 text-xs border border-blue-200 rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition-all duration-200 bg-white hover:border-blue-300 text-stone-600"
                 value={startDateGt}
                 onChange={(e) => setStartDateGt(e.target.value)}
               />
@@ -92,11 +97,11 @@ const FilterSection = ({
 
             {/* Start date lt */}
             <div className="flex flex-col">
-              <label htmlFor="start_date_lt" className="text-xs text-stone-600">Start Date &lt;</label>
+              <label htmlFor="start_date_lt" className="text-xs text-blue-700">Start Date &lt;</label>
               <input
                 id="start_date_lt"
                 type="date"
-                className="mt-1 px-2 py-0.5 text-xs border rounded focus:ring focus:ring-blue-200"
+                className="mt-1 px-2 py-0.5 text-xs border border-blue-200 rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition-all duration-200 bg-white hover:border-blue-300 text-stone-600"
                 value={startDateLt}
                 onChange={(e) => setStartDateLt(e.target.value)}
               />
@@ -104,10 +109,10 @@ const FilterSection = ({
 
             {/* Status */}
             <div className="flex flex-col">
-              <label htmlFor="status" className="text-xs text-stone-600">Status</label>
+              <label htmlFor="status" className="text-xs text-blue-700">Status</label>
               <select
                 id="status"
-                className="mt-1 px-2 py-0.5 text-xs border rounded focus:ring focus:ring-blue-200"
+                className="mt-1 px-2 py-0.5 text-xs border border-blue-200 rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition-all duration-200 bg-white hover:border-blue-300 text-stone-600"
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
               >
@@ -120,10 +125,10 @@ const FilterSection = ({
 
             {/* Ordering */}
             <div className="flex flex-col">
-              <label htmlFor="ordering" className="text-xs text-stone-600">Ordering</label>
+              <label htmlFor="ordering" className="text-xs text-blue-700">Ordering</label>
               <select
                 id="ordering"
-                className="mt-1 px-2 py-0.5 text-xs border rounded focus:ring focus:ring-blue-200"
+                className="mt-1 px-2 py-0.5 text-xs border border-blue-200 rounded-md focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition-all duration-200 bg-white hover:border-blue-300 text-stone-600"
                 value={orderingQuery}
                 onChange={(e) => setOrderingQuery(e.target.value)}
               >
@@ -135,7 +140,7 @@ const FilterSection = ({
           </div>
 
           <form method="dialog" className="mt-2 text-right">
-            <button className="text-xs text-gray-500 hover:text-gray-700">Close</button>
+            <button className="text-xs text-gray-500 hover:text-gray-700 bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded-md">Close</button>
           </form>
         </div>
       </dialog>

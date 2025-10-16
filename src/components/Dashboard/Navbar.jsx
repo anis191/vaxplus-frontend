@@ -5,9 +5,9 @@ import useAuthContext from "../../hooks/useAuthContext";
 export default function Navbar({ sidebarOpen, toggleSidebar }) {
   const { user, logoutUser } = useAuthContext();
   console.log(user)
-
+ 
   return (
-    <div className="navbar bg-base-100 border-b shadow-sm">
+    <div className="navbar bg-base-100 shadow-md">
       <div className="flex-none lg:hidden">
         <button onClick={toggleSidebar} className="btn btn-square btn-ghost">
           {sidebarOpen ? <FiX className="h-5 w-5" /> : <FiMenu className="h-5 w-5" />}

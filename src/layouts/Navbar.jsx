@@ -98,10 +98,12 @@ const Navbar = () => {
               {user ? (
                 <div className="dropdown dropdown-end">
                   <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                    <div className="bg-blue-600 text-white w-8 sm:w-9 rounded-full flex items-center justify-center">
-                      <span className="text-xs sm:text-sm">
-                        {((user.first_name?.[0] || "") + (user.last_name?.[0] || "")).toUpperCase()}
-                      </span>
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden">
+                      <div className="w-full h-full bg-blue-600 text-white flex items-center justify-center">
+                        <span className="text-xs sm:text-sm font-medium leading-none block">
+                          {((user.first_name?.[0] || "") + (user.last_name?.[0] || "")).toUpperCase()}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <ul

@@ -45,7 +45,7 @@ const Profile = () => {
     };
 
     return (
-        <div className="card w-full max-w-2xl mx-auto bg-base-100 shadow-xl">
+        <div className="card w-full max-w-2xl mx-auto bg-base-100 shadow-xl mt-2 md:mt-5">
             <div className="card-body">
                 <h2 className="card-title text-2xl mb-4">Profile Info</h2>
 
