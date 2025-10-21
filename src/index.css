@@ -45,3 +45,50 @@
   animation: diamondSheen 6s ease-in-out infinite;
   mix-blend-mode: overlay;
 }
+
+/* Responsive table styles for DoctorApplications component */
+@media (max-width: 767px) {
+  .responsive-table thead {
+    display: none;
+  }
+  .responsive-table,
+  .responsive-table tbody,
+  .responsive-table tr,
+  .responsive-table td {
+    display: block;
+    width: 100%;
+  }
+  .responsive-table tr {
+    margin-bottom: 0.75rem;
+    border: 1px solid #e5e7eb; /* tailwind gray-200 */
+    border-radius: 0.5rem;
+    padding: 0.65rem;
+  }
+  .responsive-table td {
+    padding: 0.35rem 0;
+    border: none;
+  }
+  .responsive-table td::before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: #374151; /* tailwind gray-700 */
+    display: inline-block;
+    width: 110px;
+    vertical-align: middle;
+  }
+  /* Make action buttons full width and stacked on mobile */
+  .responsive-table td[data-label="Action"] {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .responsive-table td[data-label="Action"] button {
+    flex: 1 1 100%;
+  }
+  /* wrap long text */
+  .responsive-table td {
+    word-break: break-word;
+  }
+}
