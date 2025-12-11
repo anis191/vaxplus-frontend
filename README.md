@@ -99,10 +99,11 @@ The **VaxPlus Backend**, powered by **Django REST Framework**, handles all API r
 ---
 
 ## 💻 Author
+**Anisul Alam**  
+Full-Stack Developer | Django | React | PostgreSQL
 
-[**Anisul Alam**](https://github.com/anis191)  
-Full-Stack Developer | Django | DRF | React  
-[🔗 LinkedIn](https://www.linkedin.com/in/anisul-alam-a330042a9/)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anisulalam/)
+[![Portfolio](https://img.shields.io/badge/-Portfolio-000?style=flat&logo=vercel&logoColor=white)](https://anisulalam.vercel.app/)
 
 ---
 
